@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">#SaveTheInternet</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_respond">respondActivity</string>
+    <string name="title_home">Save the internet. Tell TRAI we need network neutrality.</string>
+    <string name="detail_home">This App was created to assist supporters of strong net neutrality in articulating their own views on the matter in a legally precise manner, in order to submit a response to the TRAI (advqos@trai.gov.in) before the deadline on 24 April 2015. This App helps to send a response to TRAI, with a collection of the best arguments that may be made in favour of net neutrality, in the framework of the TRAI consultation paper.</string>
+    <string name="respond_home">Respond to TRAI now</string>
+    <string name="know_more">Want to know more?</string>
+    <string name="website1">visit http://www.savetheinternet.in/</string>
+    <string name="website2">visit http://www.netneutrality.in/</string>
+    <string name="how_to_title">How to Respond</string>
+    <string name="how_to_detail">1. Click the "Respond to TRAI Now" button\n2. Choose your Email App from the "complete action using" dialog box,The Email App will open with the content\n3. Send the mail.</string>
+    <string name="what_Net_neutrality">What Is Net Neutrality ?</string>
+    <string name="what_explain">Telecom operators/ISPs are access services providers, and can control either how much you access, what you access, how fast you access and how much you pay to access content and services on the Internet.\n\nIt’s important for access to knowledge, services and free speech, as well as freedom and ease of doing business online, for this access to be neutral:\n\n\t– All sites must be equally accessible\n\n\t– The same access speed at the telco/ISP level for each (independent of telco selection)\n
+\n\t– The same data cost for access to each site (per KB/MB).\n\n
+This means, Net Neutrality is about:\n\n
+\t– No telecom-style licensing of Internet companies.\n
+\n\t– No gateways (Internet.org, Airtel OneTouch Internet, Data VAS), censorship or selection.\n
+\n\t– No speeding up of specific websites (that may or may not pay telcos).\n
+\n\t– No “zero rating” or making some sites free over others.</string>
+</resources>

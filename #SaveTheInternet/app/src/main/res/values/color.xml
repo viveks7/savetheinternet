@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ColorPrimary">#4CAF50</color>
+    <color name="ColorPrimaryDark">#388E3C</color>
+    <color name="tabsScrollColor">#1B5E20</color>
+    <color name="statusBarColor">#388E3C</color>
+</resources>
