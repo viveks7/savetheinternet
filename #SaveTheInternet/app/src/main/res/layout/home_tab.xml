@@ -117,5 +117,9 @@
                 android:textSize="30sp"
                 android:text="@string/respond_home"/>
          </RelativeLayout>
+        <WebView
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:id="@+id/wv"></WebView>
 
 </RelativeLayout>
