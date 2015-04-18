@@ -16,10 +16,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     // Build a Constructor and assign the passed Values to appropriate values in the class
     public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[], int mNumbOfTabsumb) {
         super(fm);
-
         this.Titles = mTitles;
         this.NumbOfTabs = mNumbOfTabsumb;
-
     }
 
     @Override
@@ -29,10 +27,15 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             HomeTab homeTab = new HomeTab();
             return homeTab;
         }
-        else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
+        else if(position==1)          // As we are having 3 tabs if the position is now 1 so we are returning second tab
         {
             NeutralityTab neutralityTab = new NeutralityTab();
             return neutralityTab;
+        }
+        else                        // As we are having 3 tabs if the position is now 2 so we are returning third tab
+        {
+            SupportTab supportTab=new SupportTab();
+            return supportTab;
         }
     }
     @Override

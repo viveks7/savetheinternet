@@ -23,20 +23,19 @@ import org.apache.http.protocol.HTTP;
 
 import java.net.URLDecoder;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by vivek on 14/4/15.
  */
+
 public class HomeTab extends Fragment {
     RelativeLayout respondButton, visitWebsite1, visitWebsite2;
-    Random r;
-    int i, isFetched;
     String contentText;
     ProgressDialog mProgressDialog;
     PackageManager packageManager;
-    String[] bcc_list;
     WebView webView;
+    String bcc;
+    String subjectEmail;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,8 +45,6 @@ public class HomeTab extends Fragment {
         visitWebsite2=(RelativeLayout)v.findViewById(R.id.visitWebsite2);
         webView=(WebView)v.findViewById(R.id.wv);
         packageManager=getActivity().getPackageManager();
-        r=new Random();
-        bcc_list=new String[]{"netneutrality58@gmail.com", "netneutrality59@gmail.com", "netneutrality60@gmail.com", "netneutrality61@gmail.com", "netneutrality56@gmail.com", "netneutrality55@gmail.com", "netneutrality57@gmail.com", "netneutrality41@gmail.com", "netneutrality29@gmail.com","netneutrality34@gmail.com"};
         respondButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,27 +58,24 @@ public class HomeTab extends Fragment {
                     mProgressDialog.setIndeterminate(false);
                     webView.setWebViewClient(new ModifyWebView.AppWeb(mProgressDialog));
                     webView.loadUrl("http://www.savetheinternet.in/");
-
-
                 }else {
                 Toast.makeText(getActivity().getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
             }
             }
         });
-          visitWebsite1.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                  goToUrl("http://www.savetheinternet.in/");
-              }
-          });
-           visitWebsite2.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                   goToUrl("http://www.netneutrality.in/");
-               }
-           });
+        visitWebsite1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToUrl("http://www.savetheinternet.in/");
+            }
+        });
+        visitWebsite2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToUrl("http://www.netneutrality.in/");
+            }
+        });
         return v;
-
     }
     private void goToUrl (String url) {
         Uri uriUrl = Uri.parse(url);
@@ -94,36 +88,42 @@ public class HomeTab extends Fragment {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
-
     private class MyJsFunctionEvoke extends WebChromeClient{
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result){
             result.confirm();
-            try {
-                contentText = URLDecoder.decode(message, "UTF-8");
-            }catch (Exception e){
-                e.printStackTrace();
+            ModifyWebView.sendEmail++;
+            if(ModifyWebView.sendEmail==1){
+                bcc=message;
             }
-            email();
+            if(ModifyWebView.sendEmail==2){
+                subjectEmail=message;
+            }
+            if(ModifyWebView.sendEmail==3) {
+                try {
+                    contentText = URLDecoder.decode(message, "UTF-8");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                email();
+                ModifyWebView.sendEmail=0;
+            }
             return true;
         }
     }
     public void email(){
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        i = r.nextInt(10 - 0) - 0;
-        String bcc = bcc_list[i];
         emailIntent.setType(HTTP.PLAIN_TEXT_TYPE);
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"advqos@trai.gov.in"});
         emailIntent.putExtra(Intent.EXTRA_BCC, new String[]{bcc});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "About the proposal about Breaking net neutrality");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subjectEmail);
         emailIntent.putExtra(Intent.EXTRA_TEXT, contentText);
-        List activities = packageManager.queryIntentActivities(emailIntent,
-                PackageManager.MATCH_DEFAULT_ONLY);
+        List activities = packageManager.queryIntentActivities(emailIntent,PackageManager.MATCH_DEFAULT_ONLY);
         boolean isIntentSafe = activities.size() > 0;
         if (isIntentSafe) {
             startActivity(emailIntent);
         } else {
-            Toast.makeText(getActivity().getApplicationContext(), "Email client Required: You don't have a EMail client installed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity().getApplicationContext(), "Email client Required: You don't have a Email client installed", Toast.LENGTH_SHORT).show();
         }
     }
 }

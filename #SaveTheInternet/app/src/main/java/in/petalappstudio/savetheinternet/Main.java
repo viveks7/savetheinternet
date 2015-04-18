@@ -18,8 +18,8 @@ public class Main extends ActionBarActivity {
     public static Toolbar toolbar;
     ViewPagerAdapter viewPagerAdapter;
     SlidingTabLayout tabs;
-    CharSequence Titles[]={"Home","Net Neutrality ?"};
-    int Numboftabs =2;
+    CharSequence Titles[]={"Home","Net Neutrality?", "Support"};
+    int Numboftabs =3;
     ViewPager pager;
 
     @Override

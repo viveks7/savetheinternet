@@ -20,4 +20,11 @@ This means, Net Neutrality is about:\n\n
 \n\t– No gateways (Internet.org, Airtel OneTouch Internet, Data VAS), censorship or selection.\n
 \n\t– No speeding up of specific websites (that may or may not pay telcos).\n
 \n\t– No “zero rating” or making some sites free over others.</string>
+    <string name="how_can">How can YOU help Net Neutrality in India?</string>
+    <string name="contact_mp">Contact your MPs</string>
+    <string name="ask_people">Ask people to support</string>
+    <string name="know_startup">Know a Start-up ?</string>
+    <string name="learn_more">Learn More</string>
+    <string name="mp_message">The elected Members of Parliament from our constituencies are supposed to be our representatives. We can reach out to them to be our torchbearers, show leadership in and take a strong stand on the issue of Net Neutrality.
+Heres a sheet with contact details of MPs, to make it easy for you to appeal to them via email and/or snail mail.</string>
 </resources>
